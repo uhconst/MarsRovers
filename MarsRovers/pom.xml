@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>MarsRovers</name>
-	<description>Coordinater for rovers in marsA squad of robotic rovers are to be landed by NASA on a plateau on Mars. A squad of robotic rovers are to be landed by NASA on a plateau on Mars. A squad of robotic rovers are to be landed by NASA on a plateau on Mars. </description>
+	<description>Coordinates for rovers in mars. A squad of robotic rovers are to be landed by NASA on a plateau on Mars.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,6 +22,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		
+		<!-- THYMELEAF -->
+		<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+		
+		<!-- LAYOUT DIALECT -->
+		<thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>
 	</properties>
 
 	<dependencies>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Mars Rover</title>
+</head>
+<body>
+	<h1>Test</h1>
+	
+	<form method="POST" th:object="${rover}" th:action="@{/}">
+	
+		<label for="upperRightCoord">Upper-right coordinates of the plateau(X,Y)</label>
+		<input id="upperRightCoord" type="text" th:field=*{upperRightCoord}/>
+		
+		<br/>
+		<br/>
+		
+		<label for="roverPosition">Rover's position(X,Y,L)</label>
+		<input id="roverPosition" type="text" th:field=*{roverPosition}/>
+		
+		<br/>
+		<br/>
+		
+		<label for="roverMovements">Rover's movements</label>
+		<input id="roverMovements" type="text" th:field=*{roverMovements}/>
+		
+		<br/>
+		<br/>
+		
+		<button class="btn  btn-primary" type="submit">Calcular</button>
+	</form>
+</body>
+</html>
