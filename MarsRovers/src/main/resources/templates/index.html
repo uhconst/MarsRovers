@@ -4,38 +4,45 @@
 	xmlns:th="http://www.thymeleaf.org" 
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="UTF-8">
-<title>Mars Rover</title>
+	<meta charset="UTF-8">
+	<title>Mars Rover</title>
+	
+	<link rel="stylesheet" type="text/css" href="../../static/stylesheets/vendors/bootstrap.min.css" th:href="@{/stylesheets/vendors/bootstrap.min.css}" />
+	<link rel="stylesheet" type="text/css" href="../../static/stylesheets/MarsRovers.css" th:href="@{/stylesheets/MarsRovers.css}" />
 </head>
-<body>
-	<h1>Test</h1>
+<body class="layout-simple-page">
 	
-	<form method="POST" th:object="${rover}" th:action="@{/}">
-	
-		<div class="alert  alert-success  alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<span th:text="${mensagem}"></span>
+		<div class="layout-simple-page__container">
+			<form method="POST" class="form-vertical" th:object="${rover}" th:action="@{/}">
+				
+				<div class="simple-panel">
+					<div class="simple-panel__box">
+						<div class="alert  alert-success  alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span th:text="${mensagem}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label for="upperRightCoord">Upper-right coordinates of the plateau(X Y)</label>
+							<input id="upperRightCoord" type="text" class="form-control  js-upper-right-coord" th:field=*{upperRightCoord}/>
+						</div>
+						
+						<div class="form-group">
+							<label for="roverPosition">Rover's position(X Y H)</label>
+							<input id="roverPosition" type="text" class="form-control" th:field=*{roverPosition}/>
+						</div>
+					
+						<div class="form-group">
+							<label for="roverMovements">Rover's movements</label>
+							<input id="roverMovements" type="text" class="form-control" th:field=*{roverMovements}/>
+						</div>
+						
+						<div class="form-group  center">
+							<button class="btn  btn-primary" type="submit">Calcular</button>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
-		
-		<label for="upperRightCoord">Upper-right coordinates of the plateau(X,Y)</label>
-		<input id="upperRightCoord" type="text" th:field=*{upperRightCoord}/>
-		
-		<br/>
-		<br/>
-		
-		<label for="roverPosition">Rover's position(X,Y,L)</label>
-		<input id="roverPosition" type="text" th:field=*{roverPosition}/>
-		
-		<br/>
-		<br/>
-		
-		<label for="roverMovements">Rover's movements</label>
-		<input id="roverMovements" type="text" th:field=*{roverMovements}/>
-		
-		<br/>
-		<br/>
-		
-		<button class="btn  btn-primary" type="submit">Calcular</button>
-	</form>
 </body>
 </html>

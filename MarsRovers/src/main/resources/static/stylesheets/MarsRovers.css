@@ -1,0 +1,52 @@
+/*
+#######################
+# COMPONENTES
+#######################
+*/
+
+/*
+ * Centralizando conteudo do formulário
+ */ 
+/* .center {
+	float: none; 
+	margin: 0 auto;
+} */
+
+/*
+ * Simple panel
+ * Usado centralizar formulário
+ */
+ .layout-simple-page {
+    background-color: #f6f6f6;
+}
+
+.layout-simple-page__container {
+  display: block;
+  max-width: 420px;
+  margin: auto;
+  padding: 0 10px;
+  padding-top: 10%;
+}
+
+.simple-panel {
+  color: #777777;
+  text-align: center;
+}
+
+.simple-panel__box {
+  padding: 20px;
+  padding-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+/*
+###################################
+# CUSTOMIZAÇÃO DE COMPONENTES
+###################################
+*/
+
+.form-group {
+    padding-bottom: 25px;
+}

@@ -42,8 +42,8 @@ public class RoversController {
 		Rover roverFinalPosition = roverService.calcular(rover);
 		attributes.addFlashAttribute("mensagem", 
 					"X final: " + roverFinalPosition.getxRoverFinalCoord() +
-					"Y final: " + roverFinalPosition.getyRoverFinalCoord() +
-					"Heading final: " + roverFinalPosition.gethRoverFinalCoord());
+					" | Y final: " + roverFinalPosition.getyRoverFinalCoord() +
+					" | Heading final: " + roverFinalPosition.gethRoverFinalCoord());
 		return new ModelAndView("redirect:/");
 	}
 
