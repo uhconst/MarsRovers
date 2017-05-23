@@ -39,8 +39,11 @@ public class RoversController {
 	@PostMapping
 	public ModelAndView calcular(Rover rover, BindingResult result, RedirectAttributes attributes){
 		
-		roverService.calcular(rover);
-		attributes.addFlashAttribute("mensagem", "Rover calculado com sucesso!");
+		Rover roverFinalPosition = roverService.calcular(rover);
+		attributes.addFlashAttribute("mensagem", 
+					"X final: " + roverFinalPosition.getxRoverFinalCoord() +
+					"Y final: " + roverFinalPosition.getyRoverFinalCoord() +
+					"Heading final: " + roverFinalPosition.gethRoverFinalCoord());
 		return new ModelAndView("redirect:/");
 	}
 

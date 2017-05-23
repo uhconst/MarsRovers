@@ -12,6 +12,11 @@
 	
 	<form method="POST" th:object="${rover}" th:action="@{/}">
 	
+		<div class="alert  alert-success  alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span th:text="${mensagem}"></span>
+		</div>
+		
 		<label for="upperRightCoord">Upper-right coordinates of the plateau(X,Y)</label>
 		<input id="upperRightCoord" type="text" th:field=*{upperRightCoord}/>
 		

@@ -6,7 +6,7 @@ import com.uhc.model.Rover;
 
 @Service
 public class RoverService {
-	public void calcular(Rover rover) {
+	public Rover calcular(Rover rover) {
 		
 		String[] xyUpperRightCoord = rover.getUpperRightCoord().split("\\s+");
 		
@@ -14,6 +14,7 @@ public class RoverService {
 		
 		String[] roverMovements = rover.getRoverMovements().split("");
 
+		Integer actualRoverHeading = 0;
 		/*
 		 * Setando o X e Y final do Rover
 		 */
@@ -23,22 +24,22 @@ public class RoverService {
 		/*
 		 * Setando a direção final que o Rover está.
 		 * Usando graus pra ficar mais fácil os calculos
-		 * Quando ele for se movimentar
+		 * quando ele for se movimentar
 		 */
 		if(xylRoverPosition[2].equals("N")){
-			rover.sethRoverFinalCoord(0);
+			actualRoverHeading = 0;
 		}
 		
 		else if(xylRoverPosition[2].equals("E")){
-			rover.sethRoverFinalCoord(90);
+			actualRoverHeading = 90;
 		}
 		
 		else if(xylRoverPosition[2].equals("S")){
-			rover.sethRoverFinalCoord(180);
+			actualRoverHeading = 180;
 		}
 		
 		else if(xylRoverPosition[2].equals("W")){
-			rover.sethRoverFinalCoord(270);
+			actualRoverHeading = 270;
 		}
 		
         /*
@@ -47,40 +48,49 @@ public class RoverService {
         for (String moveLetter : roverMovements) {
             System.out.println("\nLetra: " + moveLetter);
             
-            	
+            	/*
+            	 * Checando qual foi a letra de comando para movimento 
+            	 * do rover
+            	 */
             	switch (moveLetter)
                 {
                    case "M":
-                   case "m":   if(rover.gethRoverFinalCoord()==0){
+                   case "m":   if(actualRoverHeading==0){
                 	   				rover.setyRoverFinalCoord(rover.getyRoverFinalCoord()+1);
                    				}
-			      				else if(rover.gethRoverFinalCoord()==90){
+			      				else if(actualRoverHeading==90){
 			      					rover.setxRoverFinalCoord(rover.getxRoverFinalCoord()+1);
 			     				}
-                   				else if(rover.gethRoverFinalCoord()==180){
+                   				else if(actualRoverHeading==180){
 			                	   rover.setyRoverFinalCoord(rover.getyRoverFinalCoord()-1);
 			      				}
-                   				else if(rover.gethRoverFinalCoord()==270){
+                   				else if(actualRoverHeading==270){
 			                	   rover.setxRoverFinalCoord(rover.getxRoverFinalCoord()-1);
 			      				}
                                break;
+                   /*
+                    * Virando o rover para esquerda (-90 graus)
+                    */
                    case "L":
-                   case "l":   rover.sethRoverFinalCoord(rover.gethRoverFinalCoord()-90);
+                   case "l":   actualRoverHeading = actualRoverHeading-90;
                    			   /*
                    			    * Checando se ele não vai ficar negativo. Se ficar corrige o número
                    			    */
-                   			   if(rover.gethRoverFinalCoord()==-90){
-                   				   rover.sethRoverFinalCoord(270);
+                   			   if(actualRoverHeading==-90){
+                   				   actualRoverHeading = 270;
                    			   }
-                               break;  
+                               break;
+                   /*
+                    * Virando o rover para direita (+90 graud)
+                    */
                    case "R":
                    case "r":   rover.sethRoverFinalCoord(rover.gethRoverFinalCoord()+90);
 			       			   /*
 			       			    * Checando se ele não vai dar uma volta inteira e virar 360.
 			       			    * Se virar, zera.
 			       			    */
-			       			   if(rover.gethRoverFinalCoord()==360){
-			       				   rover.sethRoverFinalCoord(0);
+			       			   if(actualRoverHeading==360){
+			       				actualRoverHeading = 0;
 			       			   }
                                break;
                    
@@ -89,8 +99,27 @@ public class RoverService {
             	
         }
         
+        /*
+         * Setando a letra do ponto cardial atual pelo grau
+         */
+        if(actualRoverHeading == 0){
+        	rover.sethRoverFinalCoord("N");
+        }
+        else if(actualRoverHeading == 90){
+        	rover.sethRoverFinalCoord("E");
+        }
+        else if(actualRoverHeading == 180){
+        	rover.sethRoverFinalCoord("S");
+        }
+        else if(actualRoverHeading == 270){
+        	rover.sethRoverFinalCoord("W");
+        }
+        
+        //APAGAR
         System.out.println("X Final: " + rover.getxRoverFinalCoord());
         System.out.println("Y Final: " + rover.getyRoverFinalCoord());
         System.out.println("H Final: " + rover.gethRoverFinalCoord());
+        
+        return rover;
 	}
 }

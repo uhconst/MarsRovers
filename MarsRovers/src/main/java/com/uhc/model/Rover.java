@@ -14,7 +14,7 @@ public class Rover {
 	
 	private Integer yRoverFinalCoord;
 	
-	private Integer hRoverFinalCoord;
+	private String hRoverFinalCoord;
 	
 	public String getUpperRightCoord() {
 		return upperRightCoord;
@@ -60,11 +60,11 @@ public class Rover {
 		this.yRoverFinalCoord = yRoverFinalCoord;
 	}
 
-	public Integer gethRoverFinalCoord() {
+	public String gethRoverFinalCoord() {
 		return hRoverFinalCoord;
 	}
 
-	public void sethRoverFinalCoord(Integer hRoverFinalCoord) {
+	public void sethRoverFinalCoord(String hRoverFinalCoord) {
 		this.hRoverFinalCoord = hRoverFinalCoord;
 	}
 	
