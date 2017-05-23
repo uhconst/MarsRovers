@@ -10,6 +10,12 @@ public class Rover {
 	
 	private String roverMovements;
 
+	private Integer xRoverFinalCoord;
+	
+	private Integer yRoverFinalCoord;
+	
+	private Integer hRoverFinalCoord;
+	
 	public String getUpperRightCoord() {
 		return upperRightCoord;
 	}
@@ -36,6 +42,30 @@ public class Rover {
 
 	public static String getLowerLeftCoord() {
 		return lowerLeftCoord;
+	}
+
+	public Integer getxRoverFinalCoord() {
+		return xRoverFinalCoord;
+	}
+
+	public void setxRoverFinalCoord(Integer xRoverFinalCoord) {
+		this.xRoverFinalCoord = xRoverFinalCoord;
+	}
+
+	public Integer getyRoverFinalCoord() {
+		return yRoverFinalCoord;
+	}
+
+	public void setyRoverFinalCoord(Integer yRoverFinalCoord) {
+		this.yRoverFinalCoord = yRoverFinalCoord;
+	}
+
+	public Integer gethRoverFinalCoord() {
+		return hRoverFinalCoord;
+	}
+
+	public void sethRoverFinalCoord(Integer hRoverFinalCoord) {
+		this.hRoverFinalCoord = hRoverFinalCoord;
 	}
 	
 }
