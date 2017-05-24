@@ -33,6 +33,7 @@ public class RoverServiceTest {
 		/*
 		 * Coordenadas, heading e movimentos de entrada
 		 */
+		rover.setUpperRightCoord("5  5");
 		rover.setRoverPosition("1 2 N");
 		rover.setRoverMovements("LMLMLMLMM");
 		

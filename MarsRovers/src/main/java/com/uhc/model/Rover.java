@@ -2,7 +2,9 @@ package com.uhc.model;
 
 public class Rover {
 	
-	private static final String lowerLeftCoord = "0 0";
+	private static final Integer XLOWERLEFTCOORD = 0;
+	
+	private static final Integer YLOWERLEFTCOORD = 0;
 	
 	private String upperRightCoord;
 	
@@ -16,6 +18,14 @@ public class Rover {
 	
 	private String hRoverFinalCoord;
 	
+	public static Integer getXlowerleftcoord() {
+		return XLOWERLEFTCOORD;
+	}
+
+	public static Integer getYlowerleftcoord() {
+		return YLOWERLEFTCOORD;
+	}
+
 	public String getUpperRightCoord() {
 		return upperRightCoord;
 	}
@@ -38,10 +48,6 @@ public class Rover {
 
 	public void setRoverMovements(String roverMovements) {
 		this.roverMovements = roverMovements;
-	}
-
-	public static String getLowerLeftCoord() {
-		return lowerLeftCoord;
 	}
 
 	public Integer getxRoverFinalCoord() {
