@@ -28,6 +28,9 @@
 		
 		<!-- LAYOUT DIALECT -->
 		<thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>
+		
+		<!-- JUnit -->
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencies>
@@ -48,6 +51,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
