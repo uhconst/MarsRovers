@@ -8,7 +8,7 @@ import com.uhc.model.Rover;
 public class RoverService {
 	public Rover calcular(Rover rover) {
 		
-		String[] xyUpperRightCoord = rover.getUpperRightCoord().split("\\s+");
+		//String[] xyUpperRightCoord = rover.getUpperRightCoord().split("\\s+");
 		
 		String[] xylRoverPosition = rover.getRoverPosition().split("\\s+");
 		
@@ -94,7 +94,7 @@ public class RoverService {
 			       			   }
                                break;
                    
-                   default: System.out.println("Invalid moviment.");
+                   default: System.out.println("Invalid movement.");
                 }
             	
         }
