@@ -1,15 +1,22 @@
 package com.uhc.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Rover {
 	
 	private static final Integer XLOWERLEFTCOORD = 0;
 	
 	private static final Integer YLOWERLEFTCOORD = 0;
 	
+	@NotBlank(message = "A coordenada upper-right deve ser preenchida!")
 	private String upperRightCoord;
 	
+	@NotBlank(message = "A posição do rover deve ser preenchida!")
 	private String roverPosition;
 	
+	@NotBlank(message = "Os movimentos do rover devem ser preenchidos!")
 	private String roverMovements;
 
 	private Integer xRoverFinalCoord;

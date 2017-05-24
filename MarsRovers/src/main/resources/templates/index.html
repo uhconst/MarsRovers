@@ -16,24 +16,37 @@
 			<form method="POST" class="form-vertical" th:object="${rover}" th:action="@{/}">
 				
 				<div class="simple-panel">
+				
 					<div class="simple-panel__box">
+					
+						<!--  MENSAGEM DE SUCESSO -->
 						<div class="alert  alert-success  alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<span th:text="${mensagem}"></span>
 						</div>
 						
-						<div class="form-group">
-							<label for="upperRightCoord">Upper-right coordinates of the plateau(X Y)</label>
+						<!--  MENSAGEM DE FRACASSO NA VALIDAÇÃO -->
+						<div class="alert  alert-danger  alert-dismissible" role="alert" th:if="${#fields.hasAnyErrors()}" th:fragment="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<th:block th:each="error: ${#fields.detailedErrors()}">
+								<div>
+									* 
+									<span th:text="${error.message}"></span>
+								</div>
+						</div>
+	
+						<div class="form-group" th:classappend="${#fields.hasErrors('upperRightCoord')} ? has-error">
+							<label for="upperRightCoord" class="control-label">Upper-right coordinates of the plateau(X Y)</label>
 							<input id="upperRightCoord" type="text" class="form-control  js-upper-right-coord" th:field=*{upperRightCoord}/>
 						</div>
 						
-						<div class="form-group">
-							<label for="roverPosition">Rover's position(X Y H)</label>
+						<div class="form-group" th:classappend="${#fields.hasErrors('roverPosition')} ? has-error">
+							<label for="roverPosition" class="control-label">Rover's position(X Y H)</label>
 							<input id="roverPosition" type="text" class="form-control  js-rover-position" th:field=*{roverPosition}/>
 						</div>
 					
-						<div class="form-group">
-							<label for="roverMovements">Rover's movements</label>
+						<div class="form-group" th:classappend="${#fields.hasErrors('roverMovements')} ? has-error">
+							<label for="roverMovements" class="control-label">Rover's movements</label>
 							<input id="roverMovements" type="text" class="form-control" th:field=*{roverMovements}/>
 						</div>
 						
